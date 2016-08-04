@@ -1,0 +1,2 @@
+# lostyouth.site
+my blog
