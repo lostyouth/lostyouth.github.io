@@ -68,7 +68,7 @@
 <link href="/css/main.css?v=5.0.1" rel="stylesheet" type="text/css" />
 
 
-  <meta name="keywords" content="hexo," />
+  <meta name="keywords" content="git," />
 
 
 
@@ -84,22 +84,22 @@
 
 
 
-<meta name="description" content="github部署部署出现下面的问题：
-1could not read Username for &apos;https://github.com&apos;: Invalid argument
-解决办法：1repo:  https://username:userpass@github.com/username/project.git">
+<meta name="description" content="web开发时部署测试很频繁，手动拷贝文件的方式麻烦且容易出错，这种重复的工作我们还是交给工具吧。今天就介绍一个利用Git部署工程的方法。
+在服务器初始化一个远程 Git 仓库这里我们要使用git –bare init初始化一个远程仓库，和git init命令不同，这个命令初始化的仓库是最原始的，只保存git历史提交的版本信息，而不允许用户在上面进行各种git操作。
+1234$ cd ~$ mkdi">
 <meta property="og:type" content="article">
-<meta property="og:title" content="hexo部署问题">
-<meta property="og:url" content="https://lostyouth.github.io/others/hexo部署问题/index.html">
+<meta property="og:title" content="Git自动部署">
+<meta property="og:url" content="https://lostyouth.github.io/uncategorized/Git自动部署/index.html">
 <meta property="og:site_name" content="Lostyouth">
-<meta property="og:description" content="github部署部署出现下面的问题：
-1could not read Username for &apos;https://github.com&apos;: Invalid argument
-解决办法：1repo:  https://username:userpass@github.com/username/project.git">
-<meta property="og:updated_time" content="2016-07-29T03:01:14.496Z">
+<meta property="og:description" content="web开发时部署测试很频繁，手动拷贝文件的方式麻烦且容易出错，这种重复的工作我们还是交给工具吧。今天就介绍一个利用Git部署工程的方法。
+在服务器初始化一个远程 Git 仓库这里我们要使用git –bare init初始化一个远程仓库，和git init命令不同，这个命令初始化的仓库是最原始的，只保存git历史提交的版本信息，而不允许用户在上面进行各种git操作。
+1234$ cd ~$ mkdi">
+<meta property="og:updated_time" content="2016-11-03T02:05:32.793Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="hexo部署问题">
-<meta name="twitter:description" content="github部署部署出现下面的问题：
-1could not read Username for &apos;https://github.com&apos;: Invalid argument
-解决办法：1repo:  https://username:userpass@github.com/username/project.git">
+<meta name="twitter:title" content="Git自动部署">
+<meta name="twitter:description" content="web开发时部署测试很频繁，手动拷贝文件的方式麻烦且容易出错，这种重复的工作我们还是交给工具吧。今天就介绍一个利用Git部署工程的方法。
+在服务器初始化一个远程 Git 仓库这里我们要使用git –bare init初始化一个远程仓库，和git init命令不同，这个命令初始化的仓库是最原始的，只保存git历史提交的版本信息，而不允许用户在上面进行各种git操作。
+1234$ cd ~$ mkdi">
 
 
 
@@ -120,9 +120,9 @@
 
 
 
-  <link rel="canonical" href="https://lostyouth.github.io/others/hexo部署问题/"/>
+  <link rel="canonical" href="https://lostyouth.github.io/uncategorized/Git自动部署/"/>
 
-  <title> hexo部署问题 | Lostyouth </title>
+  <title> Git自动部署 | Lostyouth </title>
 </head>
 
 <body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
@@ -271,7 +271,7 @@
             
             
               
-                hexo部署问题
+                Git自动部署
               
             
           </h1>
@@ -283,38 +283,19 @@
               <i class="fa fa-calendar-o"></i>
             </span>
             <span class="post-meta-item-text">发表于</span>
-            <time itemprop="dateCreated" datetime="2016-07-29T09:35:36+08:00" content="2016-07-29">
-              2016-07-29
+            <time itemprop="dateCreated" datetime="2016-11-03T09:45:12+08:00" content="2016-11-03">
+              2016-11-03
             </time>
           </span>
 
-          
-            <span class="post-category" >
-              &nbsp; | &nbsp;
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              <span class="post-meta-item-text">分类于</span>
-              
-                <span itemprop="about" itemscope itemtype="https://schema.org/Thing">
-                  <a href="/categories/others/" itemprop="url" rel="index">
-                    <span itemprop="name">others</span>
-                  </a>
-                </span>
-
-                
-                
-
-              
-            </span>
           
 
           
             
               <span class="post-comments-count">
                 &nbsp; | &nbsp;
-                <a href="/others/hexo部署问题/#comments" itemprop="discussionUrl">
-                  <span class="post-comments-count ds-thread-count" data-thread-key="others/hexo部署问题/" itemprop="commentsCount"></span>
+                <a href="/uncategorized/Git自动部署/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count ds-thread-count" data-thread-key="uncategorized/Git自动部署/" itemprop="commentsCount"></span>
                 </a>
               </span>
             
@@ -337,10 +318,17 @@
       
 
       
-        <h1 id="github部署"><a href="#github部署" class="headerlink" title="github部署"></a>github部署</h1><p>部署出现下面的问题：</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">could not <span class="built_in">read</span> Username <span class="keyword">for</span> <span class="string">'https://github.com'</span>: Invalid argument</div></pre></td></tr></table></figure>
-<p>解决办法：<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">repo:  https://username:userpass@github.com/username/project.git</div></pre></td></tr></table></figure></p>
-
+        <p>web开发时部署测试很频繁，手动拷贝文件的方式麻烦且容易出错，这种重复的工作我们还是交给工具吧。<br>今天就介绍一个利用Git部署工程的方法。</p>
+<h1 id="在服务器初始化一个远程-Git-仓库"><a href="#在服务器初始化一个远程-Git-仓库" class="headerlink" title="在服务器初始化一个远程 Git 仓库"></a>在服务器初始化一个远程 Git 仓库</h1><p>这里我们要使用git –bare init初始化一个远程仓库，和git init命令不同，这个命令初始化的仓库是最原始的，只保存git历史提交的版本信息，而不允许用户在上面进行各种git操作。</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line">$ <span class="built_in">cd</span> ~</div><div class="line">$ mkdir <span class="built_in">test</span>Repo</div><div class="line">$ <span class="built_in">cd</span> <span class="built_in">test</span>Repo</div><div class="line">$ git --bare init</div></pre></td></tr></table></figure>
+<a id="more"></a>
+<h1 id="在服务器初始化一个本地-Git-仓库"><a href="#在服务器初始化一个本地-Git-仓库" class="headerlink" title="在服务器初始化一个本地 Git 仓库"></a>在服务器初始化一个本地 Git 仓库</h1><p>这个仓库就是通过 git init 初始化出来最常见的本地仓库，它的作用是拉去上面创建的远程仓库最新的源码，然后在这个仓库里进行编译，把代码编译到 www 目录。</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line">$ <span class="built_in">cd</span> ~</div><div class="line">$ mkdir <span class="built_in">test</span>Deploy</div><div class="line">$ <span class="built_in">cd</span> <span class="built_in">test</span>Deploy</div><div class="line">$ git <span class="built_in">clone</span> ~/<span class="built_in">test</span>Repo <span class="comment">#从远程仓库 clone 出源码</span></div></pre></td></tr></table></figure>
+<h1 id="为远程仓库设置-Hook"><a href="#为远程仓库设置-Hook" class="headerlink" title="为远程仓库设置 Hook"></a>为远程仓库设置 Hook</h1><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">$ <span class="built_in">cd</span> ~/<span class="built_in">test</span>Repo/hooks</div><div class="line">$ vim post-receive</div></pre></td></tr></table></figure>
+<h1 id="post-receive-里面的执行脚本"><a href="#post-receive-里面的执行脚本" class="headerlink" title="post-receive 里面的执行脚本"></a>post-receive 里面的执行脚本</h1><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div></pre></td><td class="code"><pre><div class="line"><span class="meta">#!/bin/sh</span></div><div class="line"><span class="built_in">unset</span> GIT_DIR</div><div class="line">DeployPath=/home/user/<span class="built_in">test</span>Deploy</div><div class="line">WwwPath=/home/wwwroot/<span class="built_in">test</span>Deploy</div><div class="line"></div><div class="line"><span class="built_in">cd</span> <span class="variable">$DeployPath</span></div><div class="line">git add . -A &amp;&amp; git stash</div><div class="line">git pull origin master</div><div class="line"></div><div class="line"><span class="comment"># 下面根据自己需求编写脚本</span></div><div class="line">rsync -r --exclude=<span class="string">".git"</span> --exclude=<span class="string">".idea"</span> --exclude=<span class="string">".project"</span> . <span class="variable">$WwwPath</span> <span class="comment">#同步文件</span></div></pre></td></tr></table></figure>
+<h1 id="为-post-receive-添加可执行权限"><a href="#为-post-receive-添加可执行权限" class="headerlink" title="为 post-receive 添加可执行权限"></a>为 post-receive 添加可执行权限</h1><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$ chmod +x post-receive</div></pre></td></tr></table></figure>
+<h1 id="为本地仓库添加-remote-源"><a href="#为本地仓库添加-remote-源" class="headerlink" title="为本地仓库添加 remote 源"></a>为本地仓库添加 remote 源</h1><p>这次的本地仓库就真的是你开发机上面的本地了。在你原有 Git 项目里面添加一条新的 remote 源，以后往这个 remote 源里面 push 代码就会自动触发上面那 bash 脚本了。</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">$ git remote add deploy user@server.ip:/home/user/<span class="built_in">test</span>Repo</div><div class="line">$ git push deploy master</div></pre></td></tr></table></figure>
       
     </div>
 
@@ -362,7 +350,7 @@
       
         <div class="post-tags">
           
-            <a href="/tags/hexo/" rel="tag">#hexo</a>
+            <a href="/tags/git/" rel="tag">#git</a>
           
         </div>
       
@@ -371,13 +359,13 @@
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
+              <a href="/frontend/ES6中的Promise/" rel="next" title="ES6中的Promise">
+                <i class="fa fa-chevron-left"></i> ES6中的Promise
+              </a>
+            
           </div>
 
           <div class="post-nav-prev post-nav-item">
-            
-              <a href="/frontend/less学习笔记/" rel="prev" title="less学习笔记">
-                less学习笔记 <i class="fa fa-chevron-right"></i>
-              </a>
             
           </div>
         </div>
@@ -403,8 +391,8 @@
           
   <div class="comments" id="comments">
     
-      <div class="ds-thread" data-thread-key="others/hexo部署问题/"
-           data-title="hexo部署问题" data-url="https://lostyouth.github.io/others/hexo部署问题/">
+      <div class="ds-thread" data-thread-key="uncategorized/Git自动部署/"
+           data-title="Git自动部署" data-url="https://lostyouth.github.io/uncategorized/Git自动部署/">
       </div>
     
   </div>
@@ -495,7 +483,7 @@
               
             
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#github部署"><span class="nav-number">1.</span> <span class="nav-text">github部署</span></a></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#在服务器初始化一个远程-Git-仓库"><span class="nav-number">1.</span> <span class="nav-text">在服务器初始化一个远程 Git 仓库</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#在服务器初始化一个本地-Git-仓库"><span class="nav-number">2.</span> <span class="nav-text">在服务器初始化一个本地 Git 仓库</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#为远程仓库设置-Hook"><span class="nav-number">3.</span> <span class="nav-text">为远程仓库设置 Hook</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#post-receive-里面的执行脚本"><span class="nav-number">4.</span> <span class="nav-text">post-receive 里面的执行脚本</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#为-post-receive-添加可执行权限"><span class="nav-number">5.</span> <span class="nav-text">为 post-receive 添加可执行权限</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#为本地仓库添加-remote-源"><span class="nav-number">6.</span> <span class="nav-text">为本地仓库添加 remote 源</span></a></li></ol></div>
             
           </div>
         </section>
