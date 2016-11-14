@@ -1,0 +1,688 @@
+<!doctype html>
+
+
+
+  
+
+
+<html class="theme-next muse use-motion">
+<head>
+  <meta charset="UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+
+
+
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+  <link href="/vendors/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css" />
+
+
+
+
+  
+  
+  
+  
+
+  
+    
+    
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+    
+    
+    <link href="//fonts.googleapis.com/css?family=Lato:300,300italic,400,400italic,700,700italic&subset=latin,latin-ext" rel="stylesheet" type="text/css">
+  
+
+
+
+
+
+
+<link href="/vendors/font-awesome/css/font-awesome.min.css?v=4.4.0" rel="stylesheet" type="text/css" />
+
+<link href="/css/main.css?v=5.0.1" rel="stylesheet" type="text/css" />
+
+
+  <meta name="keywords" content="less," />
+
+
+
+
+
+
+
+
+  <link rel="shortcut icon" type="image/x-icon" href="/favicon.ico?v=5.0.1" />
+
+
+
+
+
+
+<meta name="description" content="什么是lessless 是一种css预处理语言，它在css原有的基础上提供了变量、嵌套、混合、操作符、函数等，让 CSS 更易维护、方便制作主题、扩充。
+less的使用less可以通过npm在命令行上编译，也可以在浏览器上作为脚本文件下载；或者是在第三方的构建工具中使用。
+通过npm安装less1$ npm install -g less
+命令行用法安装完less可以使用下面的命令编译，一般会指">
+<meta property="og:type" content="article">
+<meta property="og:title" content="less学习笔记">
+<meta property="og:url" content="https://lostyouth.github.io/frontend/less学习笔记/index.html">
+<meta property="og:site_name" content="Lostyouth">
+<meta property="og:description" content="什么是lessless 是一种css预处理语言，它在css原有的基础上提供了变量、嵌套、混合、操作符、函数等，让 CSS 更易维护、方便制作主题、扩充。
+less的使用less可以通过npm在命令行上编译，也可以在浏览器上作为脚本文件下载；或者是在第三方的构建工具中使用。
+通过npm安装less1$ npm install -g less
+命令行用法安装完less可以使用下面的命令编译，一般会指">
+<meta property="og:image" content="http://lesscss.org/public/img/logo.png">
+<meta property="og:updated_time" content="2016-08-04T03:47:38.519Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="less学习笔记">
+<meta name="twitter:description" content="什么是lessless 是一种css预处理语言，它在css原有的基础上提供了变量、嵌套、混合、操作符、函数等，让 CSS 更易维护、方便制作主题、扩充。
+less的使用less可以通过npm在命令行上编译，也可以在浏览器上作为脚本文件下载；或者是在第三方的构建工具中使用。
+通过npm安装less1$ npm install -g less
+命令行用法安装完less可以使用下面的命令编译，一般会指">
+<meta name="twitter:image" content="http://lesscss.org/public/img/logo.png">
+
+
+
+<script type="text/javascript" id="hexo.configuration">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    scheme: 'Muse',
+    sidebar: {"position":"left","display":"post"},
+    fancybox: true,
+    motion: true,
+    duoshuo: {
+      userId: 0,
+      author: '博主'
+    }
+  };
+</script>
+
+
+
+
+  <link rel="canonical" href="https://lostyouth.github.io/frontend/less学习笔记/"/>
+
+  <title> less学习笔记 | Lostyouth </title>
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
+
+  
+
+
+<script>
+  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+            (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+          m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+  })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+  ga('create', 'UA-82080495-1', 'auto');
+  ga('send', 'pageview');
+</script>
+
+
+
+
+
+
+
+
+
+  
+  
+    
+  
+
+  <div class="container one-collumn sidebar-position-left page-post-detail ">
+    <div class="headband"></div>
+
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-meta ">
+  
+
+  <div class="custom-logo-site-title">
+    <a href="/"  class="brand" rel="start">
+      <span class="logo-line-before"><i></i></span>
+      <span class="site-title">Lostyouth</span>
+      <span class="logo-line-after"><i></i></span>
+    </a>
+  </div>
+  <p class="site-subtitle"></p>
+</div>
+
+<div class="site-nav-toggle">
+  <button>
+    <span class="btn-bar"></span>
+    <span class="btn-bar"></span>
+    <span class="btn-bar"></span>
+  </button>
+</div>
+
+<nav class="site-nav">
+  
+
+  
+    <ul id="menu" class="menu">
+      
+        
+        <li class="menu-item menu-item-home">
+          <a href="/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-home"></i> <br />
+            
+            首页
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-categories">
+          <a href="/categories" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-th"></i> <br />
+            
+            分类
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-about">
+          <a href="/about" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-user"></i> <br />
+            
+            关于
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-archives">
+          <a href="/archives" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-archive"></i> <br />
+            
+            归档
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-tags">
+          <a href="/tags" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-tags"></i> <br />
+            
+            标签
+          </a>
+        </li>
+      
+
+      
+    </ul>
+  
+
+  
+</nav>
+
+ </div>
+    </header>
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+            
+            
+              
+                less学习笔记
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            <span class="post-meta-item-icon">
+              <i class="fa fa-calendar-o"></i>
+            </span>
+            <span class="post-meta-item-text">发表于</span>
+            <time itemprop="dateCreated" datetime="2016-08-03T10:06:25+08:00" content="2016-08-03">
+              2016-08-03
+            </time>
+          </span>
+
+          
+            <span class="post-category" >
+              &nbsp; | &nbsp;
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              <span class="post-meta-item-text">分类于</span>
+              
+                <span itemprop="about" itemscope itemtype="https://schema.org/Thing">
+                  <a href="/categories/frontend/" itemprop="url" rel="index">
+                    <span itemprop="name">frontend</span>
+                  </a>
+                </span>
+
+                
+                
+
+              
+            </span>
+          
+
+          
+            
+              <span class="post-comments-count">
+                &nbsp; | &nbsp;
+                <a href="/frontend/less学习笔记/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count ds-thread-count" data-thread-key="frontend/less学习笔记/" itemprop="commentsCount"></span>
+                </a>
+              </span>
+            
+          
+
+          
+
+          
+          
+
+          
+        </div>
+      </header>
+    
+
+
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <p><img src="http://lesscss.org/public/img/logo.png" alt="less"></p>
+<h1 id="什么是less"><a href="#什么是less" class="headerlink" title="什么是less"></a>什么是less</h1><p><a href="https://zh.wikipedia.org/wiki/LESS_(%E5%B1%82%E5%8F%A0%E6%A0%B7%E5%BC%8F%E8%A1%A8)" target="_blank" rel="external">less</a> 是一种css预处理语言，它在css原有的基础上提供了变量、嵌套、混合、操作符、函数等，让 CSS 更易维护、方便制作主题、扩充。</p>
+<h1 id="less的使用"><a href="#less的使用" class="headerlink" title="less的使用"></a>less的使用</h1><p>less可以通过npm在命令行上编译，也可以在浏览器上作为脚本文件下载；或者是在第三方的构建工具中使用。</p>
+<h2 id="通过npm安装less"><a href="#通过npm安装less" class="headerlink" title="通过npm安装less"></a>通过npm安装less</h2><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$ npm install -g less</div></pre></td></tr></table></figure>
+<h2 id="命令行用法"><a href="#命令行用法" class="headerlink" title="命令行用法"></a>命令行用法</h2><p>安装完less可以使用下面的命令编译，一般会指定一个输出文件，不然会将编译结果输出到命令行<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$ lessc style.less [style.css]</div></pre></td></tr></table></figure></p>
+<a id="more"></a>
+<p>当然还可以加上以下参数<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div></pre></td><td class="code"><pre><div class="line">-x                <span class="comment">#进行压缩，去除多余空格</span></div><div class="line">--help,-h         <span class="comment">#查看帮助</span></div><div class="line">-M, --depends     <span class="comment">#输出导文件的依赖关系列表</span></div><div class="line">--no-color        <span class="comment">#禁用颜色</span></div><div class="line">--no-ie-compat    <span class="comment">#禁用IE兼容性检查</span></div><div class="line">--no-js           <span class="comment">#禁用JavaScript</span></div><div class="line"><span class="_">-l</span>, --lint        <span class="comment">#语法检查</span></div><div class="line"><span class="_">-s</span>, --silent      <span class="comment">#忽略警告信息</span></div><div class="line">--insecure        <span class="comment">#允许导入不安全的https主机</span></div></pre></td></tr></table></figure></p>
+<h1 id="less语法"><a href="#less语法" class="headerlink" title="less语法"></a>less语法</h1><h2 id="注释"><a href="#注释" class="headerlink" title="注释"></a>注释</h2><figure class="highlight less"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line"><span class="comment">/*会显示在编译后的CSS文件中*/</span>  </div><div class="line"><span class="comment">//不会显示在编译后的CSS文件中</span></div></pre></td></tr></table></figure>
+<h2 id="变量"><a href="#变量" class="headerlink" title="变量"></a>变量</h2><ul>
+<li>变量的定义格式为：@name: value;</li>
+<li>变量定义和使用的先后顺便并不严格，多次定义变量以最后解析的为准，但还是建议先定义后使用。</li>
+<li>定义变量时最好带上单位。</li>
+<li>既然是变量肯定是可以进行计算的。</li>
+<li>变量也是有作用域的，这点和js等编程语言是一样的。</li>
+</ul>
+<figure class="highlight less"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div></pre></td><td class="code"><pre><div class="line"><span class="variable">@height:</span> <span class="number">100px</span>;</div><div class="line"><span class="variable">@mySelector:</span> banner;</div><div class="line"><span class="variable">@property:</span> color;</div><div class="line"><span class="selector-class">.box</span> &#123;</div><div class="line">    <span class="variable">@height:</span> <span class="number">200px</span>;</div><div class="line">    <span class="attribute">height</span>: <span class="variable">@height</span>;</div><div class="line">    <span class="comment">//变量替换 替换属性</span></div><div class="line">    <span class="attribute">@&#123;property&#125;</span>: <span class="number">#fff</span>;</div><div class="line">&#125;</div><div class="line"><span class="selector-class">.box1</span> &#123;</div><div class="line">    <span class="attribute">height</span>: <span class="variable">@height</span>/<span class="number">2</span>;</div><div class="line">&#125;</div><div class="line"><span class="comment">//变量替换 替换为选择器</span></div><div class="line"><span class="selector-class">.@&#123;mySelector&#125;</span> &#123;</div><div class="line">    <span class="attribute">height</span>: <span class="variable">@height</span>+<span class="number">10</span>;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<p>编译后的css<br><figure class="highlight css"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div></pre></td><td class="code"><pre><div class="line"><span class="selector-class">.box</span> &#123;</div><div class="line">    <span class="attribute">height</span>: <span class="number">200px</span>;</div><div class="line">    <span class="attribute">color</span>: <span class="number">#fff</span>;</div><div class="line">&#125;</div><div class="line"><span class="selector-class">.box1</span> &#123;</div><div class="line">    <span class="attribute">height</span>: <span class="number">50px</span>;</div><div class="line">&#125;</div><div class="line"><span class="selector-class">.banner</span> &#123;</div><div class="line">    <span class="attribute">height</span>: <span class="number">110px</span>;</div><div class="line">&#125;</div></pre></td></tr></table></figure></p>
+<h2 id="继承"><a href="#继承" class="headerlink" title="继承"></a>继承</h2><p>继承和混合的效果有点类似，但是如果要继承的类有很多属性，混合的方式会在每个类中编译出很多重复的css样式。<br><figure class="highlight less"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div></pre></td><td class="code"><pre><div class="line"><span class="selector-tag">a</span> &#123;</div><div class="line">    <span class="comment">// 继承的另一种写法 a:extend(.color .red,.inline)</span></div><div class="line">    <span class="comment">// 可以继承一个或多个</span></div><div class="line">    <span class="comment">// 可以继承嵌套选择器</span></div><div class="line">    <span class="comment">// 继承无法匹配到变量选择器，然而变量选择器可以继承</span></div><div class="line">    <span class="comment">// 在@media内继承，只能继承同一个@media内的选择器</span></div><div class="line">    <span class="selector-tag">&amp;</span><span class="selector-pseudo">:extend(.color</span> <span class="selector-class">.red</span>,<span class="selector-class">.inline</span>);</div><div class="line">    <span class="attribute">background</span>: blue;</div><div class="line">&#125;</div><div class="line"><span class="comment">// 如果写继承.red不会匹配到任何结果，如果加上all关键字将会匹配到所有包含.red的如： .a.red 或者 .red.a</span></div><div class="line"><span class="selector-tag">span</span>&#123;</div><div class="line">    <span class="selector-tag">&amp;</span><span class="selector-pseudo">:extend(.red</span> <span class="keyword">all</span>);</div><div class="line">&#125;</div><div class="line"><span class="selector-class">.color</span> &#123;</div><div class="line">    <span class="selector-class">.red</span>&#123;</div><div class="line">        <span class="attribute">color</span>: red;</div><div class="line">    &#125;</div><div class="line">&#125;</div><div class="line"><span class="selector-class">.inline</span>&#123;</div><div class="line">    <span class="attribute">display</span>: inline;</div><div class="line">&#125;</div></pre></td></tr></table></figure></p>
+<p>编译后的css<br><figure class="highlight css"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div></pre></td><td class="code"><pre><div class="line"><span class="selector-tag">a</span> &#123;</div><div class="line">  <span class="attribute">background</span>: blue;</div><div class="line">&#125;</div><div class="line"><span class="selector-class">.color</span> <span class="selector-class">.red</span>,</div><div class="line"><span class="selector-tag">a</span>,</div><div class="line"><span class="selector-class">.color</span> <span class="selector-tag">span</span> &#123;</div><div class="line">  <span class="attribute">color</span>: red;</div><div class="line">&#125;</div><div class="line"><span class="selector-class">.inline</span>,</div><div class="line"><span class="selector-tag">a</span> &#123;</div><div class="line">  <span class="attribute">display</span>: inline;</div><div class="line">&#125;</div></pre></td></tr></table></figure></p>
+<h2 id="嵌套"><a href="#嵌套" class="headerlink" title="嵌套"></a>嵌套</h2><p>嵌套模仿了真实dom的结构，让代码更少，结构更清晰。<br><figure class="highlight less"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div></pre></td><td class="code"><pre><div class="line"><span class="variable">@height:</span> <span class="number">100px</span>;</div><div class="line"><span class="selector-tag">ul</span> &#123;</div><div class="line">    <span class="selector-tag">li</span> &#123;</div><div class="line">        <span class="attribute">float</span>: left;</div><div class="line">        <span class="attribute">width</span>: <span class="number">25%</span>;</div><div class="line">        <span class="attribute">height</span>: <span class="variable">@height</span>;</div><div class="line">        <span class="selector-tag">a</span> &#123;</div><div class="line">            <span class="variable">@height:</span><span class="number">10px</span>;</div><div class="line">            <span class="attribute">color</span>: <span class="number">#000000</span>;</div><div class="line">            <span class="comment">// &amp;符号代表上一层选择器</span></div><div class="line">            <span class="selector-tag">&amp;</span><span class="selector-pseudo">:hover</span> &#123;</div><div class="line">                <span class="attribute">color</span>: <span class="number">#666666</span>;</div><div class="line">                <span class="comment">// 变量会从内到外查找</span></div><div class="line">                <span class="attribute">height</span>: <span class="variable">@height</span>;</div><div class="line">            &#125;</div><div class="line">        &#125;</div><div class="line">    &#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure></p>
+<p>编译后的css<br><figure class="highlight css"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div></pre></td><td class="code"><pre><div class="line"><span class="selector-tag">ul</span> <span class="selector-tag">li</span> &#123;</div><div class="line">    <span class="attribute">float</span>: left;</div><div class="line">    <span class="attribute">width</span>: <span class="number">25%</span>;</div><div class="line">    <span class="attribute">height</span>: <span class="number">100px</span>;</div><div class="line">&#125;</div><div class="line"><span class="selector-tag">ul</span> <span class="selector-tag">li</span> <span class="selector-tag">a</span> &#123;</div><div class="line">    <span class="attribute">color</span>: <span class="number">#000000</span>;</div><div class="line">&#125;</div><div class="line"><span class="selector-tag">ul</span> <span class="selector-tag">li</span> <span class="selector-tag">a</span><span class="selector-pseudo">:hover</span> &#123;</div><div class="line">    <span class="attribute">color</span>: <span class="number">#666666</span>;</div><div class="line">    <span class="attribute">height</span>: <span class="number">10px</span>;</div><div class="line">&#125;</div></pre></td></tr></table></figure></p>
+<h2 id="混合"><a href="#混合" class="headerlink" title="混合"></a>混合</h2><p>混合其实就是类似继承的功能，把样式全拷贝过来，如果是无参数的建议使用继承，这样可以编译出更少的样式代码。也可以带参数混合，就像使用函数一样。<br><figure class="highlight less"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div></pre></td><td class="code"><pre><div class="line"><span class="variable">@height:</span> <span class="number">100px</span>;</div><div class="line"><span class="comment">// 加上括号就不会出现在编译后的css中</span></div><div class="line"><span class="selector-class">.border</span>() &#123;</div><div class="line">    <span class="attribute">border</span>: <span class="number">1px</span> solid <span class="number">#000000</span>;</div><div class="line">    <span class="attribute">border-radius</span>: <span class="number">5px</span>;</div><div class="line">&#125;</div><div class="line"><span class="comment">// 无默认值</span></div><div class="line"><span class="comment">// 如果使用的时候不传参数,编译时会报错 RuntimeError: No matching definition was found for `.margin()`</span></div><div class="line"><span class="comment">// 同名的混合可以有不同个数的参数，类似java的重载，用法也类似</span></div><div class="line"><span class="selector-class">.margin</span>(<span class="variable">@len</span>) &#123;</div><div class="line">    <span class="attribute">margin</span>: <span class="variable">@len</span>;</div><div class="line">&#125;</div><div class="line"><span class="selector-class">.padding</span>() &#123;</div><div class="line">    <span class="comment">// 有默认值</span></div><div class="line">    <span class="selector-class">.inner</span>(<span class="variable">@len</span>:<span class="number">10px</span>)&#123;</div><div class="line">        <span class="attribute">padding</span>: <span class="variable">@len</span>;</div><div class="line">    &#125;</div><div class="line">&#125;</div><div class="line"><span class="selector-class">.box</span> &#123;</div><div class="line">    <span class="attribute">height</span>: <span class="variable">@height</span>;</div><div class="line">    <span class="comment">// 使用了!important在混合后在所有的属性上都会加上!important。</span></div><div class="line">    <span class="selector-class">.border</span>!important;</div><div class="line">    <span class="selector-class">.margin</span>(<span class="number">10px</span>);</div><div class="line">    <span class="comment">// 使用命名空间</span></div><div class="line">    <span class="selector-class">.padding</span><span class="selector-class">.inner</span>;</div><div class="line">&#125;</div><div class="line"><span class="comment">//这两种写法作用一样</span></div><div class="line"><span class="selector-class">.a</span>();   </div><div class="line"><span class="selector-class">.a</span>;</div><div class="line"><span class="comment">//这四种写法作用一样</span></div><div class="line"><span class="selector-id">#outer</span> &gt; <span class="selector-class">.inner</span>;</div><div class="line"><span class="selector-id">#outer</span> &gt; <span class="selector-class">.inner</span>();</div><div class="line"><span class="selector-id">#outer</span><span class="selector-class">.inner</span>;</div><div class="line"><span class="selector-id">#outer</span><span class="selector-class">.inner</span>();</div></pre></td></tr></table></figure></p>
+<p>编译后的css<br><figure class="highlight css"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div></pre></td><td class="code"><pre><div class="line"><span class="selector-class">.box</span> &#123;</div><div class="line">    <span class="attribute">height</span>: <span class="number">100px</span>;</div><div class="line">    <span class="attribute">border</span>: <span class="number">1px</span> solid <span class="number">#000000</span> <span class="meta">!important</span>;</div><div class="line">    <span class="attribute">border-radius</span>: <span class="number">5px</span> <span class="meta">!important</span>;</div><div class="line">    <span class="attribute">margin</span>: <span class="number">10px</span>;</div><div class="line">    <span class="attribute">padding</span>: <span class="number">10px</span>;</div><div class="line">&#125;</div></pre></td></tr></table></figure></p>
+<h2 id="模式匹配"><a href="#模式匹配" class="headerlink" title="模式匹配"></a>模式匹配</h2><p>如果你的css需要有几个主题，可以给每个主题一个模式，切换主题的时候只需要改变一个变量的值就可以了<br><figure class="highlight less"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div></pre></td><td class="code"><pre><div class="line"><span class="variable">@switch:</span> light;</div><div class="line"><span class="selector-class">.mixin</span>(dark,<span class="variable">@c</span>:<span class="number">#000</span>) &#123;</div><div class="line">    <span class="attribute">color</span>: <span class="variable">@c</span>;</div><div class="line">&#125;</div><div class="line"><span class="selector-class">.mixin</span>(light,<span class="variable">@c</span>:<span class="number">#fff</span>) &#123;</div><div class="line">    <span class="comment">//@arguments 代表所有参数</span></div><div class="line">    <span class="attribute">color</span>: <span class="variable">@arguments</span>;</div><div class="line">&#125;</div><div class="line"><span class="comment">//@_匹配任意值</span></div><div class="line"><span class="selector-class">.mixin</span>(<span class="variable">@_</span>) &#123;</div><div class="line">    <span class="attribute">display</span>: inline-block;</div><div class="line">&#125;</div><div class="line"><span class="comment">//如果@color有参数将被匹配</span></div><div class="line"><span class="selector-class">.mixin</span>(<span class="variable">@_</span>,<span class="variable">@color</span>) &#123;</div><div class="line">    <span class="attribute">display</span>: block;</div><div class="line">&#125;</div><div class="line"><span class="selector-class">.skin</span> &#123;</div><div class="line">    <span class="selector-class">.mixin</span>(<span class="variable">@switch</span>)</div><div class="line">&#125;</div></pre></td></tr></table></figure></p>
+<p>编译后的css<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line">.skin &#123;</div><div class="line">    color: #fff;</div><div class="line">    display: inline-block;</div><div class="line">&#125;</div></pre></td></tr></table></figure></p>
+<h2 id="作为函数使用的混合"><a href="#作为函数使用的混合" class="headerlink" title="作为函数使用的混合"></a>作为函数使用的混合</h2><p>就是有返回值的混合，就像调用函数一样。<br><figure class="highlight less"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div></pre></td><td class="code"><pre><div class="line"><span class="selector-class">.mixin</span>() &#123;</div><div class="line">    <span class="variable">@width:</span>  <span class="number">100px</span>;</div><div class="line">    <span class="variable">@height:</span> <span class="number">200px</span>;</div><div class="line">&#125;</div><div class="line"><span class="selector-class">.sum</span>(<span class="variable">@m</span>,<span class="variable">@n</span>)&#123;</div><div class="line">    <span class="variable">@sum:</span><span class="variable">@m</span> + <span class="variable">@n</span>;</div><div class="line">&#125;</div><div class="line"><span class="selector-class">.caller</span> &#123;</div><div class="line">    <span class="selector-class">.mixin</span>();</div><div class="line">    <span class="selector-class">.sum</span>(<span class="variable">@width</span>,<span class="variable">@height</span>);</div><div class="line">    <span class="attribute">width</span>:  <span class="variable">@width</span>;</div><div class="line">    <span class="attribute">height</span>: <span class="variable">@height</span>;</div><div class="line">    <span class="attribute">max-width</span>: <span class="variable">@sum</span>;</div><div class="line">&#125;</div></pre></td></tr></table></figure></p>
+<p>编译后的css<br><figure class="highlight css"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line"><span class="selector-class">.caller</span> &#123;</div><div class="line">    <span class="attribute">width</span>: <span class="number">100px</span>;</div><div class="line">    <span class="attribute">height</span>: <span class="number">200px</span>;</div><div class="line">    <span class="attribute">max-width</span>: <span class="number">300px</span>;</div><div class="line">&#125;</div></pre></td></tr></table></figure></p>
+<h2 id="导入"><a href="#导入" class="headerlink" title="导入"></a>导入</h2><p>语法<br><figure class="highlight less"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">@import</span> (keyword) <span class="string">"filename"</span>;</div><div class="line">reference  <span class="comment">// 使用一个less文件但不编译输出</span></div><div class="line">inline     <span class="comment">// 引入一个资源文件，但不编译，一般用于css文件</span></div><div class="line">less       <span class="comment">// 把引入的文件当做一个less文件处理，忽视文件的后缀；如果不加任何关键词‘filename’、</span></div><div class="line">           <span class="comment">// ‘filename.less’、‘filename.php’都会当做less文件处理</span></div><div class="line">css        <span class="comment">// 把引入的文件当做一个css文件处理，忽视文件的后缀</span></div><div class="line">once       <span class="comment">// 引入文件一次，不加的话默认就是这样</span></div><div class="line">multiple   <span class="comment">// 多次引入一个文件</span></div></pre></td></tr></table></figure></p>
+<h2 id="条件混合"><a href="#条件混合" class="headerlink" title="条件混合"></a>条件混合</h2><p>假如熟悉函数编程，这种方式你肯定见过<br><figure class="highlight less"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div></pre></td><td class="code"><pre><div class="line"><span class="comment">// &gt;, &gt;=, =, =&lt;, &lt; 这些比较符是可以使用的，还可以使用true只匹配true</span></div><div class="line"><span class="selector-class">.mixin</span>(<span class="variable">@w</span>) <span class="keyword">when</span> (<span class="variable">@w</span> &lt;= <span class="number">100px</span>) &#123;</div><div class="line">    <span class="attribute">height</span>: <span class="number">100px</span>;</div><div class="line">&#125;</div><div class="line"><span class="selector-class">.mixin</span>(<span class="variable">@w</span>) <span class="keyword">when</span> (<span class="variable">@w</span> &gt; <span class="number">100px</span>) &#123;</div><div class="line">    <span class="attribute">height</span>: <span class="number">200px</span>;</div><div class="line">&#125;</div><div class="line"><span class="selector-class">.isTrue</span>(<span class="variable">@flag</span>) <span class="keyword">when</span> (<span class="variable">@flag</span> = true) &#123;</div><div class="line">    <span class="attribute">color</span>: red;</div><div class="line">&#125;</div><div class="line"><span class="comment">// 逗号‘,’是或的关系</span></div><div class="line"><span class="selector-class">.index</span>(<span class="variable">@a</span>) <span class="keyword">when</span> (<span class="variable">@a</span> &gt; <span class="number">10</span>), (<span class="variable">@a</span> &lt; -<span class="number">10</span>) &#123;</div><div class="line">    <span class="attribute">z-index</span>: auto;</div><div class="line">&#125;</div><div class="line"><span class="comment">//下面是基本类型的检测方法</span></div><div class="line"><span class="comment">//iscolor</span></div><div class="line"><span class="comment">//isnumber</span></div><div class="line"><span class="comment">//isstring</span></div><div class="line"><span class="comment">//iskeyword</span></div><div class="line"><span class="comment">//isurl</span></div><div class="line"><span class="comment">//下面是检测有没有特定的单位</span></div><div class="line"><span class="comment">//ispixel</span></div><div class="line"><span class="comment">//ispercentage</span></div><div class="line"><span class="comment">//isem</span></div><div class="line"><span class="comment">//isunit</span></div><div class="line"><span class="selector-class">.mixin</span> (<span class="variable">@a</span>; <span class="variable">@b</span>: <span class="number">0</span>) <span class="keyword">when</span> (isnumber(<span class="variable">@b</span>)) &#123;</div><div class="line"></div><div class="line">&#125;</div><div class="line"><span class="selector-class">.caller</span> &#123;</div><div class="line">    <span class="selector-class">.mixin</span>(<span class="number">150px</span>);</div><div class="line">    <span class="selector-class">.isTrue</span>(true);</div><div class="line">    <span class="selector-class">.index</span>(-<span class="number">11</span>);</div><div class="line">&#125;</div></pre></td></tr></table></figure></p>
+<p>编译后的css<br><figure class="highlight css"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line"><span class="selector-class">.caller</span> &#123;</div><div class="line">    <span class="attribute">height</span>: <span class="number">200px</span>;</div><div class="line">    <span class="attribute">color</span>: red;</div><div class="line">    <span class="attribute">z-index</span>: auto;</div><div class="line">&#125;</div></pre></td></tr></table></figure></p>
+<h2 id="循环"><a href="#循环" class="headerlink" title="循环"></a>循环</h2><figure class="highlight less"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div></pre></td><td class="code"><pre><div class="line"><span class="selector-class">.generate-columns</span>(<span class="number">4</span>);</div><div class="line"></div><div class="line"><span class="selector-class">.generate-columns</span>(<span class="variable">@n</span>, <span class="variable">@i</span>:<span class="number">1</span>) <span class="keyword">when</span> (<span class="variable">@i</span> &lt;= <span class="variable">@n</span>)&#123;</div><div class="line">    <span class="selector-class">.column-</span><span class="variable">@&#123;i&#125;</span>&#123;</div><div class="line">        <span class="attribute">width</span>: <span class="number">100%</span> / <span class="variable">@n</span> * <span class="variable">@i</span>;</div><div class="line">    &#125;</div><div class="line">    <span class="comment">// 递归调用</span></div><div class="line">    <span class="selector-class">.generate-columns</span>(<span class="variable">@n</span>, <span class="variable">@i</span> + <span class="number">1</span>)</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<p>生成的css<br><figure class="highlight css"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div></pre></td><td class="code"><pre><div class="line"><span class="selector-class">.column-1</span> &#123;</div><div class="line">    <span class="attribute">width</span>: <span class="number">25%</span>;</div><div class="line">&#125;</div><div class="line"><span class="selector-class">.column-2</span> &#123;</div><div class="line">    <span class="attribute">width</span>: <span class="number">50%</span>;</div><div class="line">&#125;</div><div class="line"><span class="selector-class">.column-3</span> &#123;</div><div class="line">    <span class="attribute">width</span>: <span class="number">75%</span>;</div><div class="line">&#125;</div><div class="line"><span class="selector-class">.column-4</span> &#123;</div><div class="line">    <span class="attribute">width</span>: <span class="number">100%</span>;</div><div class="line">&#125;</div></pre></td></tr></table></figure></p>
+
+      
+    </div>
+
+    <div>
+      
+        
+
+      
+    </div>
+
+    <div>
+      
+        
+
+      
+    </div>
+
+    <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tags/less/" rel="tag">#less</a>
+          
+        </div>
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/others/hexo部署问题/" rel="next" title="hexo部署问题">
+                <i class="fa fa-chevron-left"></i> hexo部署问题
+              </a>
+            
+          </div>
+
+          <div class="post-nav-prev post-nav-item">
+            
+              <a href="/frontend/sass学习笔记/" rel="prev" title="sass学习笔记">
+                sass学习笔记 <i class="fa fa-chevron-right"></i>
+              </a>
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </article>
+
+
+
+    <div class="post-spread">
+      
+    </div>
+  </div>
+
+
+          </div>
+          
+
+
+          
+  <div class="comments" id="comments">
+    
+      <div class="ds-thread" data-thread-key="frontend/less学习笔记/"
+           data-title="less学习笔记" data-url="https://lostyouth.github.io/frontend/less学习笔记/">
+      </div>
+    
+  </div>
+
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    <div class="sidebar-inner">
+
+      
+
+      
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap" >
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview">
+            站点概览
+          </li>
+        </ul>
+      
+
+      <section class="site-overview sidebar-panel ">
+        <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+          <img class="site-author-image" itemprop="image"
+               src="/images/header.jpg"
+               alt="lostyouth" />
+          <p class="site-author-name" itemprop="name">lostyouth</p>
+          <p class="site-description motion-element" itemprop="description"></p>
+        </div>
+        <nav class="site-state motion-element">
+          <div class="site-state-item site-state-posts">
+            <a href="/archives">
+              <span class="site-state-item-count">5</span>
+              <span class="site-state-item-name">日志</span>
+            </a>
+          </div>
+
+          
+            <div class="site-state-item site-state-categories">
+              <a href="/categories">
+                <span class="site-state-item-count">2</span>
+                <span class="site-state-item-name">分类</span>
+              </a>
+            </div>
+          
+
+          
+            <div class="site-state-item site-state-tags">
+              <a href="/tags">
+                <span class="site-state-item-count">6</span>
+                <span class="site-state-item-name">标签</span>
+              </a>
+            </div>
+          
+
+        </nav>
+
+        
+
+        <div class="links-of-author motion-element">
+          
+        </div>
+
+        
+        
+
+        
+        
+
+      </section>
+
+      
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+            
+              
+            
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#什么是less"><span class="nav-number">1.</span> <span class="nav-text">什么是less</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#less的使用"><span class="nav-number">2.</span> <span class="nav-text">less的使用</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#通过npm安装less"><span class="nav-number">2.1.</span> <span class="nav-text">通过npm安装less</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#命令行用法"><span class="nav-number">2.2.</span> <span class="nav-text">命令行用法</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#less语法"><span class="nav-number">3.</span> <span class="nav-text">less语法</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#注释"><span class="nav-number">3.1.</span> <span class="nav-text">注释</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#变量"><span class="nav-number">3.2.</span> <span class="nav-text">变量</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#继承"><span class="nav-number">3.3.</span> <span class="nav-text">继承</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#嵌套"><span class="nav-number">3.4.</span> <span class="nav-text">嵌套</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#混合"><span class="nav-number">3.5.</span> <span class="nav-text">混合</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#模式匹配"><span class="nav-number">3.6.</span> <span class="nav-text">模式匹配</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#作为函数使用的混合"><span class="nav-number">3.7.</span> <span class="nav-text">作为函数使用的混合</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#导入"><span class="nav-number">3.8.</span> <span class="nav-text">导入</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#条件混合"><span class="nav-number">3.9.</span> <span class="nav-text">条件混合</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#循环"><span class="nav-number">3.10.</span> <span class="nav-text">循环</span></a></li></ol></li></ol></div>
+            
+          </div>
+        </section>
+      
+
+    </div>
+  </aside>
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <div class="copyright" >
+  
+  &copy; 
+  <span itemprop="copyrightYear">2016</span>
+  <span class="with-love">
+    <i class="fa fa-heart"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">lostyouth</span>
+</div>
+
+<div class="powered-by">
+  由 <a class="theme-link" href="https://hexo.io">Hexo</a> 强力驱动
+</div>
+
+<div class="theme-info">
+  主题 -
+  <a class="theme-link" href="https://github.com/iissnan/hexo-theme-next">
+    NexT.Muse
+  </a>
+</div>
+
+        
+
+        
+      </div>
+    </footer>
+
+    <div class="back-to-top">
+      <i class="fa fa-arrow-up"></i>
+    </div>
+  </div>
+
+  
+
+<script type="text/javascript">
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+  
+
+
+
+  
+  <script type="text/javascript" src="/vendors/jquery/index.js?v=2.1.3"></script>
+
+  
+  <script type="text/javascript" src="/vendors/fastclick/lib/fastclick.min.js?v=1.0.6"></script>
+
+  
+  <script type="text/javascript" src="/vendors/jquery_lazyload/jquery.lazyload.js?v=1.9.7"></script>
+
+  
+  <script type="text/javascript" src="/vendors/velocity/velocity.min.js?v=1.2.1"></script>
+
+  
+  <script type="text/javascript" src="/vendors/velocity/velocity.ui.min.js?v=1.2.1"></script>
+
+  
+  <script type="text/javascript" src="/vendors/fancybox/source/jquery.fancybox.pack.js?v=2.1.5"></script>
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/utils.js?v=5.0.1"></script>
+
+  <script type="text/javascript" src="/js/src/motion.js?v=5.0.1"></script>
+
+
+
+  
+  
+
+  
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.0.1"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.0.1"></script>
+
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/bootstrap.js?v=5.0.1"></script>
+
+
+
+  
+
+  
+    
+  
+
+  <script type="text/javascript">
+    var duoshuoQuery = {short_name:"lostyouth"};
+    (function() {
+      var ds = document.createElement('script');
+      ds.type = 'text/javascript';ds.async = true;
+      ds.id = 'duoshuo-script';
+      ds.src = (document.location.protocol == 'https:' ? 'https:' : 'http:') + '//static.duoshuo.com/embed.js';
+      ds.charset = 'UTF-8';
+      (document.getElementsByTagName('head')[0]
+      || document.getElementsByTagName('body')[0]).appendChild(ds);
+    })();
+  </script>
+
+  
+    
+    <script src="/vendors/ua-parser-js/dist/ua-parser.min.js?v=0.7.9"></script>
+    <script src="/js/src/hook-duoshuo.js"></script>
+  
+
+
+
+
+
+
+  
+  
+
+  
+
+  
+
+  
+
+</body>
+</html>
