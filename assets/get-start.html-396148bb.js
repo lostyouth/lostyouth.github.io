@@ -1,0 +1,1 @@
+const t=JSON.parse('{"key":"v-2d7fdbfb","path":"/cocos/get-start.html","title":"","lang":"zh-CN","frontmatter":{},"headers":[],"git":{"updatedTime":1675299701000,"contributors":[{"name":"chenyang","email":"754934438@qq.com","commits":1}]},"filePathRelative":"cocos/get-start.md"}');export{t as data};
