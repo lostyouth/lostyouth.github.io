@@ -5,12 +5,19 @@ import { plumeTheme } from 'vuepress-theme-plume'
 export default defineUserConfig({
   base: '/',
   lang: 'zh-CN',
-  title: 'Lostyouth',
+  title: "Dylan's Blog",
   description: '',
 
   head: [
     // 配置站点图标
-    ['link', { rel: 'icon', type: 'image/png', href: 'https://theme-plume.vuejs.press/favicon-32x32.png' }],
+    [
+      'link',
+      {
+        rel: 'icon',
+        type: 'image/svg',
+        href: '/logo.svg',
+      },
+    ],
   ],
 
   bundler: viteBundler(),
@@ -18,7 +25,7 @@ export default defineUserConfig({
 
   theme: plumeTheme({
     /* 添加您的部署域名, 有助于 SEO, 生成 sitemap */
-    // hostname: 'https://your_site_url',
+    hostname: 'https://lostyouth.github.io',
 
     /* 文档仓库配置，用于 editLink */
     // docsRepo: '',
@@ -69,17 +76,15 @@ export default defineUserConfig({
        * Shiki 代码高亮
        * @see https://theme-plume.vuejs.press/config/plugins/code-highlight/
        */
-      // shiki: {
-      //   // 强烈建议预设代码块高亮语言，插件默认加载所有语言会产生不必要的时间开销
-      //   languages: ['shell', 'bash', 'typescript', 'javascript'],
-      //   twoslash: true, // 启用 twoslash
-      //   whitespace: true, // 启用 空格/Tab 高亮
-      //   lineNumbers: true, // 启用行号
-      // },
-
+      shiki: {
+        // 强烈建议预设代码块高亮语言，插件默认加载所有语言会产生不必要的时间开销
+        languages: ['shell', 'bash', 'typescript', 'javascript'],
+        twoslash: true, // 启用 twoslash
+        whitespace: true, // 启用 空格/Tab 高亮
+        lineNumbers: true, // 启用行号
+      },
       /* 本地搜索, 默认启用 */
       // search: true,
-
       /**
        * Algolia DocSearch
        * 启用此搜索需要将 本地搜索 search 设置为 false
@@ -90,10 +95,8 @@ export default defineUserConfig({
       //   apiKey: '',
       //   indexName: '',
       // },
-
       /* 文章字数统计、阅读时间，设置为 false 则禁用 */
       // readingTime: true,
-
       /**
        * markdown enhance
        * @see https://theme-plume.vuejs.press/config/plugins/markdown-enhance/
@@ -104,7 +107,6 @@ export default defineUserConfig({
       //   mermaid: true,
       //   flowchart: true,
       // },
-
       /**
        *  markdown power
        * @see https://theme-plume.vuejs.press/config/plugin/markdown-power/
@@ -131,13 +133,11 @@ export default defineUserConfig({
       //   },
       //   imageSize: 'local', // 启用 自动填充 图片宽高属性，避免页面抖动
       // },
-
       /**
        * 在 Markdown 文件中导入其他 markdown 文件内容。
        * @see https://theme-plume.vuejs.press/guide/markdown/include/
        */
       // markdownInclude: true,
-
       /**
        * Markdown 数学公式
        * @see https://theme-plume.vuejs.press/config/plugins/markdown-math/
@@ -145,13 +145,11 @@ export default defineUserConfig({
       // markdownMath: {
       //   type: 'katex',
       // },
-
       /**
        * 水印
        * @see https://theme-plume.vuejs.press/guide/features/watermark/
        */
       // watermark: true,
-
       /**
        * 评论 comments
        * @see https://theme-plume.vuejs.press/guide/features/comments/
