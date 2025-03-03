@@ -5,6 +5,7 @@ import { defineClientConfig } from 'vuepress/client'
 // import Swiper from 'vuepress-theme-plume/features/Swiper.vue'
 
 import CustomComponent from './theme/components/Custom.vue'
+import Base64Component from './theme/components/Base64.vue'
 
 // import './theme/styles/custom.css'
 
@@ -18,5 +19,6 @@ export default defineClientConfig({
 
     // your custom components
     app.component('CustomComponent', CustomComponent)
+    app.component('Base64Component', Base64Component)
   },
 })
