@@ -28,8 +28,8 @@ const handleDecode = () => {
 
 function base64Encode(str: string) {
   const base64Chars = 'ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789+/'
-  let byteTemp = []
-  let result = []
+  let byteTemp: string[] = []
+  let result: string[] = []
   const encodeArray = new TextEncoder().encode(str)
   for (let i = 0; i < encodeArray.length; i++) {
     byteTemp = byteTemp.concat(encodeArray[i].toString(2).padStart(8, '0').split(''))
@@ -48,8 +48,8 @@ function base64Encode(str: string) {
 
 function base64Decode(str: string) {
   const base64Chars = 'ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789+/='
-  let byteTemp = []
-  let result = []
+  let byteTemp: string[] = []
+  let result: number[] = []
   for (let i = 0; i < str.length; i++) {
     if (!base64Chars.includes(str[i])) {
       throw new Error('Invalid character in base64 string')
