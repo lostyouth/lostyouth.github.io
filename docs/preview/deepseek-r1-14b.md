@@ -1,5 +1,7 @@
 ---
 title: deepseek-r1-14B的安装和应用
+tags: 
+  - 大模型
 createTime: 2025/02/21 19:16:56
 permalink: /article/0zjalw9f/
 ---
@@ -53,7 +55,7 @@ ollama run deepseek-r1:14b
 ollama server
 ```
 
-Ollama运行服务后，可以安装webui去访问api。本次选择https://github.com/ollama-webui/ollama-webui-lite 作为webui。ollama-webui-lite采用sevlte框架开发。部署完可通过http://ollama-webui.erp12580.com/ 访问。
+Ollama运行服务后，可以安装webui去访问api。本次选择https://github.com/ollama-webui/ollama-webui-lite 作为webui。ollama-webui-lite采用sevlte框架开发。部署完可通过http://ollama-webui.example.com/ 访问。
 
 需要注意的是，由于Ollama server服务似乎对api/chat接口有特殊限制所以nginx的配置需要调整，特别是以下几行：
 
@@ -63,6 +65,8 @@ proxy_set_header Origin '';
 proxy_set_header Referer '';
 ```
 
+另外由于Ollama对接口调用并不会进行鉴权操作，应该对不必要的接口禁止访问，只允许api/chat等接口的访问。还要对api/chat接口进行限流，防止接口被恶意调用。
+
 完整配置如下：
 
 ```nginx
@@ -71,9 +75,11 @@ map $http_upgrade $connection_upgrade {
     '' close;
 }
 
+# 定义限流区域
+limit_req_zone $binary_remote_addr zone=api_limit:1m rate=1r/s;
+
 server {
-    listen 8021;
-    #server_name ollama-webui.example.com;
+    server_name ollama-webui.example.com;
 
     client_max_body_size 10M;
     fastcgi_buffers 8 4K;
@@ -91,7 +97,7 @@ server {
         }
     }
 
-    location /api {
+    location ~* /api/(tags|version|chat|generate) {
         proxy_http_version 1.1;
         proxy_buffering off;
         proxy_set_header Origin '';
@@ -108,6 +114,12 @@ server {
             add_header Access-Control-Allow-Headers X-Requested-With,Content-Type,Authorization;
             proxy_pass http://127.0.0.1:11434;
         }
+        # 应用限流规则
+        limit_req zone=api_limit burst=2 nodelay;
+    }
+
+    location /api/ {
+        return 404;
     }
 
     location @router {

@@ -23,6 +23,8 @@ Web Worker 为 Web 内容在后台线程中运行脚本提供了一种简单的�
 
 Web Worker的使用主要还是为了避免在主线程中执行复杂任务导致阻塞主线程，导致页面卡顿等问题，因此Web Worker主要还是用于处理复杂任务。
 
+下面是一个将生成excel的操作放在Web Worker中执行的例子。
+
 ```ts
 // excel.worker.ts
 import ExcelJS from 'exceljs';
@@ -80,4 +82,37 @@ const workerExportExcel = async () => {
 };
 
 workerExportExcel()
+```
+
+通过下面的简单代码测试下Web Worker通信需要花多长时间, 多次测试发现Web Workder的通信时间在1ms左右。
+
+```js
+// test.worker.js
+onmessage = function (e) {
+  postMessage({})
+}
+```
+
+```js
+import TestWorker from './test.worker?worker'
+
+const testWorker = new TestWorker()
+let start = 0
+testWorker.onmessage = event => {
+  console.log(Date.now() - start)
+}
+
+function test() {
+  start = Date.now()
+  testWorker.postMessage('start')
+}
+
+test()
+```
+
+通常情况下我们要运行多个worker去执行我们的任务，但是Web Worker运行会占用内存和其他资源，所以我们最好根据CPU的核心数决定worder的数量，避免资源浪费。
+
+```js
+// 获取CPU核心数
+let workerCount = navigator.hardwareConcurrency
 ```
